@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "humUbqVg3z9wyd//A9/eTPjoy8o6Vh/RMyHPqOJF/mVThKB0XOv3TbRFMOZc8pmf1/PFq4/jxOm7sIQTIgwv1w==",
+  "success": true,
+  "projectFilePath": "D:\\Proyecto01\\Sistemas_de_Calificacion_baez\\Sistemas_de_Calificacion_baez\\Sistemas_de_Calificacion_baez\\Sistemas_de_Calificacion_baez.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\josem\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\josem\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\josem\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\josem\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\josem\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sistemas_de_Calificacion_baez.Reporte">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Reporte de Notas" FontSize="36" TextColor="DarkBlue" HorizontalOptions="Center" Margin="0,20,0,10" />
+            
+            <ActivityIndicator x:Name="LoadingActivityIndicator" IsRunning="False" IsVisible="False" Color="DarkBlue" />
+
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="Notas de Estudiantes" FontSize="24" TextColor="DarkBlue" HorizontalOptions="Center" Margin="0,20,0,10" />
+
+                    <ListView x:Name="NotasListView" HasUnevenRows="True">
+                        <ListView.Header>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Nombre" FontSize="18" VerticalOptions="Center" WidthRequest="150" TextColor="DarkBlue" />
+                                <Label Text="Asistencia" FontSize="18" VerticalOptions="Center" WidthRequest="100" TextColor="DarkBlue" />
+                                <Label Text="Trabajo Práctico" FontSize="18" VerticalOptions="Center" WidthRequest="150" TextColor="DarkBlue" />
+                                <Label Text="Examen Parcial" FontSize="18" VerticalOptions="Center" WidthRequest="150" TextColor="DarkBlue" />
+                                <Label Text="Examen Final" FontSize="18" VerticalOptions="Center" WidthRequest="150" TextColor="DarkBlue" />
+                            </StackLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" BackgroundColor="{Binding RowColor}">
+                                        <Label Text="{Binding Nombre}" FontSize="18" VerticalOptions="Center" WidthRequest="150" TextColor="DarkBlue" />
+                                        <Label Text="{Binding Asistencia}" FontSize="18" VerticalOptions="Center" WidthRequest="100" TextColor="DarkBlue" />
+                                        <Label Text="{Binding TrabajoPractico}" FontSize="18" VerticalOptions="Center" WidthRequest="150" TextColor="DarkBlue" />
+                                        <Label Text="{Binding ExamenParcial}" FontSize="18" VerticalOptions="Center" WidthRequest="150" TextColor="DarkBlue" />
+                                        <Label Text="{Binding ExamenFinal}" FontSize="18" VerticalOptions="Center" WidthRequest="150" TextColor="DarkBlue" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

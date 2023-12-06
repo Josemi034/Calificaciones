@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sistemas_de_Calificacion_baez.MainPage">
+
+    <Grid>
+        <Frame>
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="1,0">
+                    <GradientStop Color="Pink" Offset="0.1" />
+                    <GradientStop Color="SkyBlue" Offset="1.0"/>
+                    <GradientStop Color="PaleVioletRed" Offset="2.0"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
+        <ScrollView>
+
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="Bienvenidos al Sistema de Calificación" FontSize="36"
+               HorizontalTextAlignment="Center" Margin="0,0,0,20"
+               TextColor="PaleVioletRed" FontAttributes="Bold"/>
+
+                <StackLayout>
+
+                    <Button Text="🌐 Probar Conexión" x:Name="TestConnection" Clicked="TestConnection_Clicked"
+                         WidthRequest="180"
+                         HorizontalOptions="CenterAndExpand" 
+                         VerticalOptions="CenterAndExpand" 
+                         BackgroundColor="LightSkyBlue" />
+
+                </StackLayout>
+
+                <Label Text="Profesor" Style="{StaticResource LabelEntryStyle}" />
+                <Entry x:Name="ProfesorEntry" Placeholder="Ingrese Nombre Profesor" Keyboard="Text" Style="{StaticResource EntryStyle}" />
+
+                <Frame  CornerRadius="10" BackgroundColor="LightPink">
+                    <Label FontSize="17" Text="Matrícula" Style="{StaticResource LabelEntrStyle}"  FontAttributes="Bold" /> 
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="LightBlue">
+                    <Entry x:Name="MatriculaEntry" Placeholder="Ingrese la matrícula" Style="{StaticResource LabelEntryStyle}" FontSize="14" Keyboard="Text" Margin="0,0,0,10"
+                    TextColor="Blue" FontAttributes="Bold"/>
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="LightPink">
+                    <Label FontSize="17" Text="Nombre" Style="{StaticResource LabelEntryStyle}" FontAttributes="Bold" />
+                </Frame>
+                <Frame CornerRadius="10" BackgroundColor="LightBlue">
+                    <Entry x:Name="NombreEntry" Placeholder="Ingrese el nombre" Style="{StaticResource LabelEntryStyle}" Margin="0,0,0,10" 
+                   TextColor="Blue" FontAttributes="Bold" FontSize="14"/>
+                </Frame>
+                <Frame CornerRadius="10" BackgroundColor="LightPink">
+                    <Label FontSize="17" Text="Nota de asistencia"  Style="{StaticResource LabelEntryStyle}" FontAttributes="Bold" />
+                </Frame>
+                <Frame CornerRadius="10" BackgroundColor="LightBlue">
+                    <Entry x:Name="AsistenciaEntry" Placeholder="Ingrese la nota de asistencia" Style="{StaticResource LabelEntryStyle}" Keyboard="Numeric" 
+                           Margin="0,0,0,10" TextColor="Blue" FontAttributes="Bold" FontSize="14"/>
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="LightPink" >
+                    <Label FontSize="17" Text="Nota de Trabajo Práctico"  Style="{StaticResource LabelEntryStyle}"  FontAttributes="Bold" />
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="LightBlue">
+                    <Entry x:Name="TrabajoPracticoEntry" Placeholder="Ingrese la nota del trabajo práctico" Style="{StaticResource LabelEntryStyle}" Keyboard="Numeric" 
+                       Margin="0,0,0,10" TextColor="Blue" FontAttributes="Bold" FontSize="14" />
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="LightPink">
+                    <Label FontSize="17" Text="Nota del Examen Parcial"  Style="{StaticResource LabelEntryStyle}" FontAttributes="Bold" />
+                </Frame>
+                <Frame CornerRadius="10" BackgroundColor="LightBlue">
+                    <Entry x:Name="ExamenParcialEntry" Placeholder="Ingrese la nota del examen parcial" Style="{StaticResource LabelEntryStyle}" Keyboard="Numeric" 
+                       Margin="0,0,0,10" TextColor="Blue" FontAttributes="Bold" FontSize="14"/>
+                </Frame>
+                <Frame CornerRadius="10" BackgroundColor="LightPink">
+                    <Label FontSize="17" Text="Nota del Examen Final" Style="{StaticResource LabelEntryStyle}" FontAttributes="Bold" />
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="LightBlue">
+                    <Entry x:Name="ExamenFinalEntry" Placeholder="Ingrese la nota del examen final" Style="{StaticResource LabelEntryStyle}" Keyboard="Numeric" 
+                      Margin="0,0,0,10" TextColor="Blue" FontAttributes="Bold" FontSize="14"/>
+                </Frame>
+
+                <Button Text="💾 Guardar Nota" x:Name="Guardanota" Clicked="Guardanota_Clicked"
+                    WidthRequest="180" CornerRadius="5"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand" 
+                    BackgroundColor="#44bd32" 
+                    Margin="20"/>
+                
+                <Button Text="Reporte"  BackgroundColor="SkyBlue" TextColor="White" FontAttributes="Bold" x:Name="ReporteButton" Clicked="ReporteButton_Clicked"/>
+
+                <Label Text="Nota Final: " FontAttributes="Bold" FontSize="26" HorizontalOptions="Center" Padding="-1" Margin="0,20,0,0" TextColor="Black" />
+                <Label x:Name="NotaFinalLabel" FontSize="28" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
+
+
+                <Label Text="Equivalencia en Letra: " FontAttributes="Bold" FontSize="26" HorizontalOptions="Center" Margin="0,20,0,0" TextColor="Black"/>
+                <Label x:Name="EquivalenciaLabel" FontSize="28" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
+            </StackLayout>
+
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
