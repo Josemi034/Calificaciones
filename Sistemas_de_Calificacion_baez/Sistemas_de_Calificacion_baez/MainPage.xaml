@@ -1,7 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Sistemas_de_Calificacion_baez.MainPage">
+             x:Class="Sistema_de_Calificacicion_baez.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelEntryStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Blue"/>
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            </Style>
+
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BackgroundColor" Value="LightYellow"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <!-- Centramos horizontalmente -->
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <!-- Centramos verticalmente -->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
 
     <Grid>
         <Frame>
@@ -34,7 +58,7 @@
                 <Entry x:Name="ProfesorEntry" Placeholder="Ingrese Nombre Profesor" Keyboard="Text" Style="{StaticResource EntryStyle}" />
 
                 <Frame  CornerRadius="10" BackgroundColor="LightPink">
-                    <Label FontSize="17" Text="Matrícula" Style="{StaticResource LabelEntrStyle}"  FontAttributes="Bold" /> 
+                    <Label FontSize="17" Text="Matrícula" Style="{StaticResource LabelEntrStyle}"  FontAttributes="Bold" />
                 </Frame>
 
                 <Frame CornerRadius="10" BackgroundColor="LightBlue">
@@ -82,6 +106,20 @@
                       Margin="0,0,0,10" TextColor="Blue" FontAttributes="Bold" FontSize="14"/>
                 </Frame>
 
+                <Button CornerRadius="5" Text="Calcular nota final" BackgroundColor="PaleVioletRed" HorizontalOptions="Center" 
+                        TextColor="White" FontAttributes="Bold" x:Name="btnCalcular" Clicked="Button_Clicked" 
+                />
+                
+                <Label Text="Nota Final: " FontAttributes="Bold" FontSize="26" HorizontalOptions="Center" Padding="-1" Margin="0,20,0,0" TextColor="Black" />
+                <Label x:Name="NotaFinalLabel" FontSize="28" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
+
+
+                <Label Text="Equivalencia en Letra: " FontAttributes="Bold" FontSize="26" HorizontalOptions="Center" Margin="0,20,0,0" TextColor="Black"/>
+                <Label x:Name="EquivalenciaLabel" FontSize="28" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
+
+                <Label x:Name="resultadoLabel" FontSize="12" HorizontalOptions="Center" TextColor="Blue" FontAttributes="Bold"/>
+
+
                 <Button Text="💾 Guardar Nota" x:Name="Guardanota" Clicked="Guardanota_Clicked"
                     WidthRequest="180" CornerRadius="5"
                     TextColor="White"
@@ -90,16 +128,10 @@
                     BackgroundColor="#44bd32" 
                     Margin="20"/>
                 
+
                 <Button Text="Reporte"  BackgroundColor="SkyBlue" TextColor="White" FontAttributes="Bold" x:Name="ReporteButton" Clicked="ReporteButton_Clicked"/>
 
-                <Label Text="Nota Final: " FontAttributes="Bold" FontSize="26" HorizontalOptions="Center" Padding="-1" Margin="0,20,0,0" TextColor="Black" />
-                <Label x:Name="NotaFinalLabel" FontSize="28" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
-
-
-                <Label Text="Equivalencia en Letra: " FontAttributes="Bold" FontSize="26" HorizontalOptions="Center" Margin="0,20,0,0" TextColor="Black"/>
-                <Label x:Name="EquivalenciaLabel" FontSize="28" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
             </StackLayout>
-
         </ScrollView>
     </Grid>
 

@@ -1,22 +1,25 @@
-﻿using System;
+﻿using Sistemas_de_Calificacion_baez;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Sistemas_de_Calificacion_baez
-{
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Reporte : ContentPage
-    {
-        private List<Calificacion> calificaciones;
 
-        public Reporte()
-        {
-            InitializeComponent();
-        }
+
+namespace Sistema_de_Calificacicion_baez
+{
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class Reporte : ContentPage
+	{
+        private List<Calificaciones> calificaciones;    
+        public Reporte ()
+		{
+			InitializeComponent ();
+		}
 
         protected override async void OnAppearing()
         {
@@ -37,13 +40,12 @@ namespace Sistemas_de_Calificacion_baez
             LoadingActivityIndicator.IsVisible = false;
         }
 
-        // Función para obtener las calificaciones desde la base de datos
-        private async Task<List<Calificacion>> ObtenerCalificacionesDesdeBaseDeDatosAsync()
+        private async Task<List<Calificaciones>> ObtenerCalificacionesDesdeBaseDeDatosAsync()
         {
             try
             {
-                string connectionString = "Server=10.0.0.7,1433;Database=NOTAS;User Id=JUANCITO; Password=123456;";
-                List<Calificacion> calificaciones = new List<Calificacion>();
+                string connectionString = "Server=10.0.0.9;1433;Database=NOTAS;User Id=josem; Password=josemiguelbaezmendez;";
+                List<Calificaciones> calificaciones = new List<Calificaciones>();
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -55,7 +57,7 @@ namespace Sistemas_de_Calificacion_baez
                     {
                         while (await reader.ReadAsync())
                         {
-                            Calificacion calificacion = new Calificacion
+                            Calificaciones calificacion = new Calificaciones 
                             {
                                 ID = reader.GetInt32(reader.GetOrdinal("ID")),
                                 Profesor = reader.GetString(reader.GetOrdinal("Profesor")),
@@ -78,9 +80,11 @@ namespace Sistemas_de_Calificacion_baez
             {
                 // Manejar errores aquí
                 await DisplayAlert("Error", "Error al obtener las calificaciones desde la base de datos: " + ex.Message, "Aceptar");
-                return new List<Calificacion>();
+                return new List<Calificaciones>();
             }
         }
+
+
+
     }
 }
-

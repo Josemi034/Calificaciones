@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Sistemas_de_Calificacion_baez
+namespace Sistema_de_Calificacicion_baez
 {
     public partial class MainPage : ContentPage
     {
+       
+
         public MainPage()
         {
             InitializeComponent();
@@ -17,7 +20,8 @@ namespace Sistemas_de_Calificacion_baez
             this.Title = "Sistema de Calificación Universitaria";
 
         }
-        private async void Button_Clicked(object sender, EventArgs e)
+
+        private async void Button_Clicked(object sender, EventArgs e )
         {
             // Validar que los campos no estén vacíos y sean números válidos
             if (string.IsNullOrWhiteSpace(AsistenciaEntry.Text) ||
@@ -100,10 +104,11 @@ namespace Sistemas_de_Calificacion_baez
                 EquivalenciaLabel.Text = "FI";
             else
                 EquivalenciaLabel.Text = "F";
-
             // Nuevo Label para mostrar "APROBADO" o "DESAPROBADO" y cambiar el color de fondo
+           
             resultadoLabel.FontSize = 24;
             resultadoLabel.HorizontalOptions = LayoutOptions.CenterAndExpand;
+
 
             if (notaFinal >= 70)
             {
@@ -117,39 +122,13 @@ namespace Sistemas_de_Calificacion_baez
             }
         }
 
-        private async void TestConnection_Clicked(object sender, EventArgs e)
-        {
-            try
-            {
-                // Establecemos la Cadena de Conexion con el SQL Server y Nuestros datos:
-                string connectionString = "Server=10.0.0.7,1433;Database=NOTAS;User Id=JUANCITO; Password=123456;";
-
-                // Crear una conexión a la base de datos
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    await connection.OpenAsync();
-
-                    // Si la conexión se abre con éxito, mostramos un mensaje
-                    await DisplayAlert("🌐 Conexión Exitosa", "👍 La conexión a la base de datos se ha establecido correctamente.", "Aceptar");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Si hay algún error, mostramos un mensaje de error
-                await DisplayAlert("Error de Conexión", "No se pudo establecer la conexión a la base de datos. Error: " + ex.Message, "Aceptar");
-            }
-
-
-        }
 
         private async void Guardanota_Clicked(object sender, EventArgs e)
         {
-            // Realiza los cálculos y la validación de entrada como en tu código original
-
             try
             {
                 // Establecemos la Cadena de Conexion con el SQL Server y Nuestros datos:
-                string connectionString = "Server=xxx xxx xxx,xxx xxx ;Database=xxxx;User Id=xxxx; Password= xxxxx;";
+                string connectionString = "";
 
                 // Crear una conexión a la base de datos
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -195,16 +174,34 @@ namespace Sistemas_de_Calificacion_baez
                 // Error de conexión o inserción
                 await DisplayAlert("Error", "Error al conectar con la base de datos o al guardar los datos. Detalles: " + ex.Message, "Aceptar");
             }
+        }
 
+        private async void TestConnection_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                // Establecemos la Cadena de Conexion con el SQL Server y Nuestros datos:
+                string connectionString = "Server=10.0.0.9,1433;Database=;User Id=Jose; Password=josemiguelbazmendez;";
+
+                // Crear una conexión a la base de datos
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    // Si la conexión se abre con éxito, mostramos un mensaje
+                    await DisplayAlert("🌐 Conexión Exitosa", "👍 La conexión a la base de datos se ha establecido correctamente.", "Aceptar");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Si hay algún error, mostramos un mensaje de error
+                await DisplayAlert("Error de Conexión", "No se pudo establecer la conexión a la base de datos. Error: " + ex.Message, "Aceptar");
+            }
         }
 
         private async void ReporteButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Reporte());
-
         }
     }
 }
-    
-
-
